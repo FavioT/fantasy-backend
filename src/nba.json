@@ -1,0 +1,37 @@
+[
+	{
+    "firstName": "Steph",
+    "lastName": "Curry",
+    "playerId": 201939,
+    "teamId": 1610612744,
+    "fullName": "Stephen Curry"
+  },
+  {
+    "firstName": "James",
+    "lastName": "Harden",
+    "playerId": 201935,
+    "teamId": 1610612745,
+    "fullName": "James Harden"
+  },
+  {
+    "firstName": "Kev",
+    "lastName": "Durant",
+    "playerId": 201142,
+    "teamId": 1610612744,
+    "fullName": "Kevin Durant"
+  },
+  {
+    "firstName": "Anthony",
+    "lastName": "Davis",
+    "playerId": 203076,
+    "teamId": 1610612740,
+    "fullName": "Anthony Davis"
+  },
+  {
+    "firstName": "LMA",
+    "lastName": "Aldridge",
+    "playerId": 200746,                                                                                                                                                                                                
+    "teamId": 1610612759,                                                                                                                                                                                              
+    "fullName": "LaMarcus Aldridge"
+  } 
+]
