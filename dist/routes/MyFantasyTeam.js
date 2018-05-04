@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const NBA = require("nba");
+// My custom modules
+const players_1 = require("../modules/players");
+const team_1 = require("../modules/team");
 const FantasyTeam = require('../nba');
 class MyFantasyTeamRouter {
     /**
@@ -15,36 +17,8 @@ class MyFantasyTeamRouter {
     * GET all Players
     */
     getAll(req, res, next) {
-        class Player {
-            constructor(firstName, lastName, playerId, teamId, fullName) {
-                this.firstName = firstName;
-                this.lastName = lastName;
-                this.playerId = playerId;
-                this.teamId = teamId;
-                this.fullName = fullName;
-            }
-            ;
-        }
-        class Players {
-            static create(someone) {
-                let info = NBA.findPlayer(someone);
-                return new Player(info.firstName, info.lastName, info.playerId, info.teamId, info.fullName);
-            }
-        }
-        class Team {
-            constructor() {
-                this._list = [];
-            }
-            list() {
-                console.dir(this._list);
-                return this._list;
-            }
-            addPlayer(player) {
-                this._list.push(player);
-            }
-            statistics() { }
-        }
-        let myTeam = new Team();
+        let myTeam = new team_1.Team();
+        let myPlayer = new players_1.Players();
         let players = [
             'Kyrie Irving',
             'James Harden',
@@ -53,12 +27,12 @@ class MyFantasyTeamRouter {
             'Joel Embiid'
         ];
         players.forEach(function (player) {
-            let onePlayer = Players.create(player);
+            //myPlayer.create(player);
+            let onePlayer = players_1.Players.create(player);
+            //let oneStats = Players.getStats(onePlayer);
             myTeam.addPlayer(onePlayer);
         });
-        myTeam.list();
         res.send(myTeam.list());
-        //res.send(FantasyTeam);
     }
     /**
     * GET one player by playerId

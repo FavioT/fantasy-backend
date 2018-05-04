@@ -1,4 +1,4 @@
-import { Player } from '../modules/Players';
+import { Player } from './players';
 
 export class Team {
   _list: any[] = [];

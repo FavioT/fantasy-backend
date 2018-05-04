@@ -1,5 +1,10 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import * as NBA from 'nba';
+
+// My custom modules
+import { Players } from '../modules/players';
+import { Team } from '../modules/team';
+
 const FantasyTeam = require('../nba');
 
 export class MyFantasyTeamRouter {
@@ -18,43 +23,22 @@ export class MyFantasyTeamRouter {
     * GET all Players
     */
     public getAll(req: Request, res: Response, next: NextFunction) {
-        class Player {
-            constructor(public firstName: string, public lastName: string, public playerId: number, public teamId: number, public fullName: string) {};
-        }
-
-        class Players {
-            static create( someone: string) {
-                let info = NBA.findPlayer(someone);
-                return new Player(info.firstName, info.lastName, info.playerId, info.teamId, info.fullName);
-            }
-        }
-
-        class Team {
-            _list: any[] = [];
-
-            list(): any {
-                console.dir(this._list);
-                return this._list;
-            }
-
-            addPlayer( player: Player ) {
-                this._list.push(player);
-            }
-
-            statistics( ) {}
-        }
 
         let myTeam = new Team();
+        let myPlayer = new Players();
+
         let players = [
             'Kyrie Irving', 
             'James Harden', 
             'Kevin Durant', 
             'Anthony Davis', 
             'Joel Embiid'
-        ];
+        ];        
 
         players.forEach(function(player) {
+            //myPlayer.create(player);
             let onePlayer = Players.create(player);
+            //let oneStats = Players.getStats(onePlayer);
             myTeam.addPlayer(onePlayer);
         });
 
