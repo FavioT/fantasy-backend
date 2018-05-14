@@ -20,16 +20,34 @@ class MyFantasyTeamRouter {
         let myTeam = new team_1.Team();
         let myPlayer = new players_1.Players();
         let players = [
-            'Kyrie Irving',
+            'Stephen Curry',
             'James Harden',
             'Kevin Durant',
             'Anthony Davis',
-            'Joel Embiid'
+            'Al Horford'
         ];
         players.forEach(function (player) {
-            //myPlayer.create(player);
-            let onePlayer = players_1.Players.create(player);
-            //let oneStats = Players.getStats(onePlayer);
+            let onePlayer = myPlayer.create(player);
+            let oneStats = myPlayer.getStats(onePlayer);
+            myTeam.addPlayer(onePlayer);
+        });
+        res.send(myTeam.list());
+    }
+    /**
+    * GET players Statistics.
+    */
+    getStats(req, res, next) {
+        let myTeam = new team_1.Team();
+        let myPlayer = new players_1.Players();
+        let players = [
+            202681,
+            201935,
+            201142,
+            203076,
+            203954
+        ];
+        players.forEach(function (player) {
+            let onePlayer = myPlayer.getStats(player);
             myTeam.addPlayer(onePlayer);
         });
         res.send(myTeam.list());
@@ -63,6 +81,7 @@ class MyFantasyTeamRouter {
     init() {
         this.router.get('/', this.getAll);
         this.router.get('/:id', this.getOne);
+        this.router.get('/stats', this.getStats);
     }
 }
 exports.MyFantasyTeamRouter = MyFantasyTeamRouter;

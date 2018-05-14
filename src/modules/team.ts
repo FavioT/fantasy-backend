@@ -1,4 +1,4 @@
-import { Player } from './players';
+import { Players } from './players';
 
 export class Team {
   _list: any[] = [];
@@ -7,7 +7,7 @@ export class Team {
     console.dir(this._list);
   }
 
-  addPlayer( player: Player ) {
+  addPlayer( player: any ) {
     this._list.push(player);
   }
 
