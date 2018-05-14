@@ -9,7 +9,7 @@ export class Players {
 
         let info = NBA.findPlayer(someone);
 
-        let player: Player = {
+        let basicInfo: Player = {
             firstName: info.firstName, 
             lastName: info.lastName, 
             playerId: info.playerId, 
@@ -17,7 +17,7 @@ export class Players {
             fullName: info.fullName                
         }
 
-        return player;                        
+        return basicInfo;                        
     }
 
     getStats( someone: any ) {
