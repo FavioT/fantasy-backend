@@ -20,13 +20,14 @@ export class Players {
         return basicInfo;                        
     }
 
-    getStats( someone: any ) {
-        let player = NBA.stats.playerSplits({ PlayerID: someone.playerId })
+    getStats( someone: number ) {
+        let player = NBA.stats.playerSplits({ PlayerID: someone })
                         .then(
                             function (res) {
                                 for (let item in res) {
                                     if( item === 'overallPlayerDashboard') {
                                         console.log(res[item]);
+                                        return res[item];
                                     }
                                 }
                             },

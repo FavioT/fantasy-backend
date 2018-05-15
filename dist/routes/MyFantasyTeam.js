@@ -31,8 +31,6 @@ class MyFantasyTeamRouter {
             //let oneStats = myPlayer.getStats(onePlayer);
             myTeam.addPlayer(onePlayer);
         });
-        let result = myTeam._list;
-        console.log(myTeam);
         res.send(myTeam._list);
     }
     /**
@@ -50,8 +48,9 @@ class MyFantasyTeamRouter {
         ];
         players.forEach(function (player) {
             let onePlayer = myPlayer.getStats(player);
+            myTeam.addStat(onePlayer);
         });
-        res.send(myTeam.list());
+        res.send(myTeam._stats);
     }
     /**
     * GET one player by playerId
@@ -81,8 +80,8 @@ class MyFantasyTeamRouter {
     */
     init() {
         this.router.get('/', this.getAll);
-        this.router.get('/:id', this.getOne);
         this.router.get('/stats', this.getStats);
+        this.router.get('/:id', this.getOne);
     }
 }
 exports.MyFantasyTeamRouter = MyFantasyTeamRouter;

@@ -15,11 +15,12 @@ class Players {
         return basicInfo;
     }
     getStats(someone) {
-        let player = NBA.stats.playerSplits({ PlayerID: someone.playerId })
+        let player = NBA.stats.playerSplits({ PlayerID: someone })
             .then(function (res) {
             for (let item in res) {
                 if (item === 'overallPlayerDashboard') {
                     console.log(res[item]);
+                    return res[item];
                 }
             }
         }, function (err) {
