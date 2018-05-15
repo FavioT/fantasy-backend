@@ -28,10 +28,12 @@ class MyFantasyTeamRouter {
         ];
         players.forEach(function (player) {
             let onePlayer = myPlayer.create(player);
-            let oneStats = myPlayer.getStats(onePlayer);
+            //let oneStats = myPlayer.getStats(onePlayer);
             myTeam.addPlayer(onePlayer);
         });
-        res.send(myTeam.list());
+        let result = myTeam._list;
+        console.log(myTeam);
+        res.send(myTeam._list);
     }
     /**
     * GET players Statistics.
@@ -48,7 +50,6 @@ class MyFantasyTeamRouter {
         ];
         players.forEach(function (player) {
             let onePlayer = myPlayer.getStats(player);
-            myTeam.addPlayer(onePlayer);
         });
         res.send(myTeam.list());
     }

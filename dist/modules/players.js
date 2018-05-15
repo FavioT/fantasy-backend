@@ -5,22 +5,14 @@ class Players {
     constructor() { }
     create(someone) {
         let info = NBA.findPlayer(someone);
-        /*let infoPlayer = {
-            firstName: info.firstName,
-            lastName: info.lastName,
-            playerId: info.playerId,
-            teamId: info.teamId,
-            fullName: info.fullName
-        }
-        return infoPlayer;*/
-        let jugador = {
+        let basicInfo = {
             firstName: info.firstName,
             lastName: info.lastName,
             playerId: info.playerId,
             teamId: info.teamId,
             fullName: info.fullName
         };
-        return jugador;
+        return basicInfo;
     }
     getStats(someone) {
         let player = NBA.stats.playerSplits({ PlayerID: someone.playerId })
