@@ -48,7 +48,6 @@ class MyFantasyTeamRouter {
         ];
         players.forEach(function (player, index) {
             let oneStat = myPlayer.getStats(player, index);
-            //console.log(oneStat);
             allStats.push(oneStat);
         });
         res.send(allStats);

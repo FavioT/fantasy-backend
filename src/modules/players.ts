@@ -1,5 +1,5 @@
 import * as NBA from 'nba';
-import { Player, PlayerStats } from '../interfaces/types';
+import { Player, IndividualStat } from '../interfaces/types';
 
 export class Players {
 
@@ -21,13 +21,9 @@ export class Players {
     }
 
     getStats( someone: number, idx: number ) {
-        interface MyType {
-            playerId: number,
-            stats: PlayerStats
-        }
 
-        var indStats: MyType;        
-
+        let indStats: IndividualStat;
+        
         /*
         let player = NBA.stats.playerSplits({ PlayerID: someone })
                         .then(
@@ -367,7 +363,7 @@ export class Players {
             } 
         ];
 
-        indStats = { playerId: someone, stats: mockupStats[idx] };
+        indStats = { playerId: someone, playerStats: mockupStats[idx] };
 
         return indStats;
     }

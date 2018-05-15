@@ -70,3 +70,8 @@ export interface PlayerStats {
     cfid: number,
     cfparams: string
 }
+
+export interface IndividualStat {
+	playerId: number,
+	playerStats: PlayerStats
+}

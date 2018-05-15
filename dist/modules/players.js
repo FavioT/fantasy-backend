@@ -15,7 +15,7 @@ class Players {
         return basicInfo;
     }
     getStats(someone, idx) {
-        var indStats;
+        let indStats;
         /*
         let player = NBA.stats.playerSplits({ PlayerID: someone })
                         .then(
@@ -353,7 +353,7 @@ class Players {
                 cfparams: '2017-18'
             }
         ];
-        indStats = { playerId: someone, stats: mockupStats[idx] };
+        indStats = { playerId: someone, playerStats: mockupStats[idx] };
         return indStats;
     }
 }
