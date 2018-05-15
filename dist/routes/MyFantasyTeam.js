@@ -37,8 +37,8 @@ class MyFantasyTeamRouter {
     * GET players Statistics.
     */
     getStats(req, res, next) {
-        let myTeam = new team_1.Team();
         let myPlayer = new players_1.Players();
+        let allStats = [];
         let players = [
             202681,
             201935,
@@ -46,11 +46,12 @@ class MyFantasyTeamRouter {
             203076,
             203954
         ];
-        players.forEach(function (player) {
-            let onePlayer = myPlayer.getStats(player);
-            myTeam.addStat(onePlayer);
+        players.forEach(function (player, index) {
+            let oneStat = myPlayer.getStats(player, index);
+            //console.log(oneStat);
+            allStats.push(oneStat);
         });
-        res.send(myTeam._stats);
+        res.send(allStats);
     }
     /**
     * GET one player by playerId
