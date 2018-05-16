@@ -36,7 +36,6 @@ export class MyFantasyTeamRouter {
 
         players.forEach(function(player) {
             let onePlayer = myPlayer.create(player);
-            //let oneStats = myPlayer.getStats(onePlayer);
             myTeam.addPlayer(onePlayer);
         });
 

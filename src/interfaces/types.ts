@@ -3,7 +3,8 @@ export interface Player {
     lastName: string, 
     playerId: number, 
     teamId: number, 
-    fullName: string;
+    fullName: string,
+    teamName?: string
 }
 
 export interface PlayerStats {
