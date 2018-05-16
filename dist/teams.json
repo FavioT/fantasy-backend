@@ -5,7 +5,8 @@
   },
   {
     "teamId": 1610612738,
-    "teamName": "Boston Celtics"
+    "teamName": "Boston Celtics",
+    "teamLogo": "assets/img/teams/Celtics.png"
   },
   {
     "teamId": 1610612751,
@@ -37,11 +38,13 @@
   },
   {
     "teamId": 1610612744,
-    "teamName": "Golden State Warriors"
+    "teamName": "Golden State Warriors",
+    "teamLogo": "assets/img/teams/Warriors.png"
   },
   {
     "teamId": 1610612745,
-    "teamName": "Houston Rockets"
+    "teamName": "Houston Rockets",
+    "teamLogo": "assets/img/teams/Rockets.png"
   },  
   {
     "teamId": 1610612754,
@@ -73,7 +76,7 @@
   },
   {
     "teamId": 1610612740,
-    "teamName": "New Orleans PelicansS"
+    "teamName": "New Orleans Pelicans"
   },
   {
     "teamId": 1610612752,

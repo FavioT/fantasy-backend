@@ -4,7 +4,8 @@ export interface Player {
     playerId: number, 
     teamId: number, 
     fullName: string,
-    teamName?: string
+    teamName?: string,
+    teamLogo?: string
 }
 
 export interface PlayerStats {

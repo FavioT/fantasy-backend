@@ -17,16 +17,25 @@ export class Team {
   }
 
   addPlayer( player: Player ) {
-    
+
     function searchTeam (id) {
       for (let item of TEAM_INFO) {
         if (item.teamId === id) {
           return item.teamName;
         }
-      }   
+      }
+    }
+
+    function putLogo (id) {
+      for (let item of TEAM_INFO) {
+        if (item.teamId === id) {
+          return item.teamLogo;
+        }
+      }
     }
 
     player.teamName = searchTeam(player.teamId);
+    player.teamLogo = putLogo(player.teamId);
     this._list.push(player);
   }
 
