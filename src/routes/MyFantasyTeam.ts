@@ -8,13 +8,27 @@ import { Team } from '../modules/team';
 const FantasyTeam = require('../nba');
 
 export class MyFantasyTeamRouter {
-    router: Router;
-
+    router: Router;    
+    static players = [
+        'Stephen Curry', 
+        'James Harden', 
+        'Kevin Durant', 
+        'Anthony Davis', 
+        'Al Horford'
+    ];
+    static playersIds = [
+        202681, 
+        201935, 
+        201142, 
+        203076, 
+        203954
+    ];
+    
     /**
     * Initialize MyFantasyTeamRouter
     */
-    constructor() {
-        this.router = Router();
+    public constructor() {
+        this.router = Router();        
         this.init();        
     }
 
@@ -24,17 +38,9 @@ export class MyFantasyTeamRouter {
     public getAll(req: Request, res: Response, next: NextFunction) {
 
         let myTeam = new Team();
-        let myPlayer = new Players();
+        let myPlayer = new Players();        
 
-        let players = [
-            'Stephen Curry', 
-            'James Harden', 
-            'Kevin Durant', 
-            'Anthony Davis', 
-            'Al Horford'
-        ];
-
-        players.forEach(function(player) {
+        MyFantasyTeamRouter.players.forEach(function(player) {
             let onePlayer = myPlayer.create(player);
             myTeam.addPlayer(onePlayer);
         });
@@ -49,17 +55,9 @@ export class MyFantasyTeamRouter {
     public getStats(req: Request, res: Response, next: NextFunction) {
 
         let myPlayer = new Players();
-        let allStats: any[] = [];
+        let allStats: any[] = [];        
 
-        let players = [
-            202681, 
-            201935, 
-            201142, 
-            203076, 
-            203954
-        ];
-
-        players.forEach(function(player, index) {
+        MyFantasyTeamRouter.playersIds.forEach(function(player, index) {
             let oneStat = myPlayer.getStats(player, index);
             allStats.push(oneStat);
         });

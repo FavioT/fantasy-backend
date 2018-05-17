@@ -76,7 +76,8 @@
   },
   {
     "teamId": 1610612740,
-    "teamName": "New Orleans Pelicans"
+    "teamName": "New Orleans Pelicans",
+    "teamLogo": "assets/img/teams/Pelicans.png"
   },
   {
     "teamId": 1610612752,

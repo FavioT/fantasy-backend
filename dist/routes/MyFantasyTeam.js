@@ -19,14 +19,7 @@ class MyFantasyTeamRouter {
     getAll(req, res, next) {
         let myTeam = new team_1.Team();
         let myPlayer = new players_1.Players();
-        let players = [
-            'Stephen Curry',
-            'James Harden',
-            'Kevin Durant',
-            'Anthony Davis',
-            'Al Horford'
-        ];
-        players.forEach(function (player) {
+        MyFantasyTeamRouter.players.forEach(function (player) {
             let onePlayer = myPlayer.create(player);
             myTeam.addPlayer(onePlayer);
         });
@@ -38,14 +31,7 @@ class MyFantasyTeamRouter {
     getStats(req, res, next) {
         let myPlayer = new players_1.Players();
         let allStats = [];
-        let players = [
-            202681,
-            201935,
-            201142,
-            203076,
-            203954
-        ];
-        players.forEach(function (player, index) {
+        MyFantasyTeamRouter.playersIds.forEach(function (player, index) {
             let oneStat = myPlayer.getStats(player, index);
             allStats.push(oneStat);
         });
@@ -83,6 +69,20 @@ class MyFantasyTeamRouter {
         this.router.get('/:id', this.getOne);
     }
 }
+MyFantasyTeamRouter.players = [
+    'Stephen Curry',
+    'James Harden',
+    'Kevin Durant',
+    'Anthony Davis',
+    'Al Horford'
+];
+MyFantasyTeamRouter.playersIds = [
+    202681,
+    201935,
+    201142,
+    203076,
+    203954
+];
 exports.MyFantasyTeamRouter = MyFantasyTeamRouter;
 // Create MyFantasyTeamRouter, and export its configured Express.Router
 const teamRoutes = new MyFantasyTeamRouter();
